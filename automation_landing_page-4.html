@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klarwerk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --gray: #666666;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background: var(--white);
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--black);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 400;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-menu a:hover {
+            opacity: 0.6;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: clamp(48px, 6vw, 80px);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: clamp(36px, 4vw, 54px);
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 40px;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray);
+        }
+
+        .large-text {
+            font-size: 20px;
+            line-height: 1.5;
+            color: var(--gray);
+            margin-bottom: 60px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            padding: 18px 40px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Sections */
+        .section {
+            padding: 120px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-content {
+            width: 100%;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 200px 0;
+        }
+
+        .hero-section .container {
+            max-width: 800px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            margin-top: 80px;
+        }
+
+        .service-card {
+            text-align: center;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 300px;
+            background: var(--light-gray);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .service-title {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .service-price {
+            font-size: 16px;
+            color: var(--gray);
+        }
+
+        /* Split Section */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .split-image {
+            width: 100%;
+            height: 400px;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+        }
+
+        /* Consultation Section */
+        .consultation-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 100px;
+            align-items: start;
+        }
+
+        .booking-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 40px;
+        }
+
+        .booking-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .appointment-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .appointment-option:last-child {
+            border-bottom: none;
+        }
+
+        .appointment-info h4 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .appointment-info p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .book-btn {
+            background: var(--black);
+            color: var(--white);
+            padding: 10px 20px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Contact Form */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: start;
+        }
+
+        .contact-form {
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: var(--black);
+        }
+
+        .required {
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--border);
+            font-size: 16px;
+            font-family: inherit;
+            background: var(--white);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--black);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--light-gray);
+            padding: 80px 0 40px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer h2 {
+            margin-bottom: 20px;
+        }
+
+        .footer p {
+            margin-bottom: 40px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 400px;
+            margin: 0 auto 40px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid var(--border);
+            border-right: none;
+            font-size: 16px;
+        }
+
+        .newsletter-btn {
+            padding: 15px 30px;
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--black);
+            transition: opacity 0.2s ease;
+        }
+
+        .social-link:hover {
+            opacity: 0.6;
+        }
+
+        .footer-bottom {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .split-section,
+            .consultation-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .consultation-grid .booking-card {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 30px;
+            }
+
+            .nav {
+                padding: 20px 0;
+            }
+
+            .nav-menu {
+                gap: 25px;
+            }
+
+            .section {
+                padding: 80px 0;
+                min-height: auto;
+            }
+
+            .hero-section {
+                padding: 120px 0;
+            }
+
+            .services-grid {
+                gap: 60px;
+                margin-top: 60px;
+            }
+
+            .split-section,
+            .consultation-grid,
+            .contact-grid {
+                gap: 40px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .newsletter-input {
+                border-right: 1px solid var(--border);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .nav-menu {
+                gap: 20px;
+            }
+
+            .nav-menu a {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">Klarwerk</a>
+                <ul class="nav-menu">
+                    <li><a href="#services">How it works</a></li>
+                    <li><a href="#about">Why Klarwerk</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-section hero">
+        <!-- Background Video -->
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="hero-video.mp4" type="video/mp4">
+            <!-- Fallback gradient if video doesn't load -->
+        </video>
+        
+        <!-- Dark overlay for text readability -->
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <h1>Automate your back office. Keep the clarity.</h1>
+            <p class="large-text">We help SMEs in Germany, Austria, and Switzerland cut repetitive admin with human-in-the-loop automation. Start with a 3-minute assessment → get a free savings report → book a €50 consultation.</p>
+            <a href="#consultation" class="btn">Book €50 Consultation</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-content">
+                <h2>Our Services</h2>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-image">3-Minute Assessment</div>
+                        <h3 class="service-title">Automation Potential Quiz</h3>
+                        <p class="service-price">Free · instant report</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-image">Diagnosis & Roadmap</div>
+                        <h3 class="service-title">€50 Consultation (60–120 min)</h3>
+                        <p class="service-price">Credited to pilot</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-image">Pilot & Handover</div>
+                        <h3 class="service-title">Pilot Implementation</h3>
+                        <p class="service-price">From €2,000 · 2–4 weeks</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="split-section">
+                <div class="split-image">Professional Workspace</div>
+                <div>
+                    <h2>Klarwerk in short</h2>
+                    <p>We automate back-office work for DACH SMEs with reliable agents and a human approval step where it matters. You keep control and auditability; we deliver measurable time and cost savings. Typical outcomes: 10–18 hours saved per week, payback in 3–6 months.</p>
+                    <br>
+                    <a href="#services" class="btn">See how it works</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Booking -->
+    <section class="section" id="consultation">
+        <div class="container">
+            <div class="consultation-grid">
+                <div>
+                    <h2>Book your €50 consultation</h2>
+                    <p class="large-text">A focused 60–120 minute session to map your top workflows, estimate savings, and outline a pilot. You'll receive a short "Automation Roadmap" PDF after the call. The €50 fee is credited to your pilot if you proceed.</p>
+                </div>
+                
+                <div class="booking-card">
+                    <div class="booking-header">
+                        <h3>Select Appointment</h3>
+                    </div>
+                    
+                    <div class="appointment-option">
+                        <div class="appointment-info">
+                            <h4>€50 Consultation</h4>
+                            <p>60–120 minutes · roadmap PDF · fee credited</p>
+                        </div>
+                        <button class="book-btn">Book</button>
+                    </div>
+                    
+                    <div class="appointment-option">
+                        <div class="appointment-info">
+                            <h4>Pilot Kickoff (after consult)</h4>
+                            <p>Scoping & timelines · included with pilot</p>
+                        </div>
+                        <button class="book-btn">Request</button>
+                    </div>
+                    
+                    <div class="appointment-option">
+                        <div class="appointment-info">
+                            <h4>Assessment Link</h4>
+                            <p>3-minute quiz · free savings report</p>
+                        </div>
+                        <button class="book-btn" onclick="location.href='#services'">Open</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div>
+                    <h2>Talk to Klarwerk</h2>
+                    <p class="large-text">Questions before you book? Send a note and we'll reply within one business day. For a fast start, book the €50 consultation or take the 3-minute assessment first.</p>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label class="form-label">Name <span class="required">(required)</span></label>
+                            <div class="form-row">
+                                <input type="text" class="form-input" placeholder="First Name">
+                                <input type="text" class="form-input" placeholder="Last Name">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Email <span class="required">(required)</span></label>
+                            <input type="email" class="form-input" placeholder="Email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Message <span class="required">(required)</span></label>
+                            <textarea class="form-input form-textarea" placeholder="Message"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h2>Klarwerk</h2>
+                <p>Automation consulting for SMEs in the DACH region — 3-minute assessment, €50 consultation, and pilot delivery.</p>
+                
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Email Address">
+                    <button type="submit" class="newsletter-btn">Sign Up</button>
+                </form>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link">T</a>
+                    <a href="#" class="social-link">I</a>
+                    <a href="#" class="social-link">L</a>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>© 2025 Klarwerk. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
