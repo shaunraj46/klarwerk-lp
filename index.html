@@ -194,18 +194,28 @@
         /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 20px;
             margin-top: 60px;
+            align-items: start;
         }
 
         .service-card {
             text-align: left;
         }
 
-        .service-image {
+        .service-card:nth-child(1) .service-image,
+        .service-card:nth-child(3) .service-image {
             width: 100%;
-            height: 400px;
+            height: 350px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-card:nth-child(2) .service-image {
+            width: 100%;
+            height: 700px;
             object-fit: cover;
             margin-bottom: 20px;
             display: block;
