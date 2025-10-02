@@ -288,62 +288,140 @@
             color: var(--gray);
         }
 
-        /* Consultation Section */
+        /* Consultation Section - Squarespace Style */
+        .consultation-section {
+            padding: 120px 0;
+            background: var(--white);
+        }
+
+        .consultation-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 clamp(16px, 4vw, 56px);
+        }
+
         .consultation-grid {
             display: grid;
             grid-template-columns: 1fr 400px;
-            gap: 100px;
+            gap: 80px;
             align-items: start;
         }
 
-        .booking-card {
+        .consultation-content h1 {
+            font-size: clamp(28px, 3.5vw, 42px);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--black);
+        }
+
+        .consultation-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray);
+            margin-bottom: 40px;
+        }
+
+        .consultation-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        /* Right Side Booking Panel */
+        .booking-panel {
             background: var(--white);
             border: 1px solid var(--border);
-            padding: 40px;
+            padding: 0;
+            position: sticky;
+            top: 100px;
         }
 
         .booking-header {
+            padding: 24px 24px 20px;
+            border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border);
         }
 
-        .appointment-option {
+        .booking-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--black);
+            margin: 0;
+        }
+
+        .select-appointment {
+            font-size: 14px;
+            color: var(--gray);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        /* Service Options */
+        .service-option {
+            padding: 24px;
+            border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border);
         }
 
-        .appointment-option:last-child {
+        .service-option:last-child {
             border-bottom: none;
         }
 
-        .appointment-info h4 {
+        .service-info h3 {
             font-size: 16px;
             font-weight: 500;
-            margin-bottom: 5px;
+            margin: 0 0 4px 0;
+            color: var(--black);
         }
 
-        .appointment-info p {
+        .service-duration {
             font-size: 14px;
             color: var(--gray);
+            margin: 0;
         }
 
-        .book-btn {
+        .service-price {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--black);
+            margin: 0;
+        }
+
+        .book-button {
             background: var(--black);
             color: var(--white);
-            padding: 10px 20px;
+            border: none;
+            padding: 8px 16px;
             font-size: 12px;
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
+            letter-spacing: 0.5px;
             cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .book-button:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer - Powered by */
+        .booking-footer {
+            padding: 16px 24px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--gray);
+            border-top: 1px solid var(--border);
+        }
+
+        .booking-footer a {
+            color: var(--gray);
+            text-decoration: underline;
         }
 
         /* Contact Form */
@@ -501,8 +579,9 @@
                 gap: 60px;
             }
 
-            .consultation-grid .booking-card {
+            .consultation-grid .booking-panel {
                 order: -1;
+                position: static;
             }
         }
 
@@ -537,6 +616,10 @@
             .consultation-grid,
             .contact-grid {
                 gap: 40px;
+            }
+
+            .consultation-container {
+                padding: 0 30px;
             }
 
             .form-row {
@@ -645,41 +728,51 @@
     </section>
 
     <!-- Consultation Booking -->
-    <section class="section" id="consultation">
-        <div class="container">
+    <section class="consultation-section" id="consultation">
+        <div class="consultation-container">
             <div class="consultation-grid">
-                <div>
-                    <h2>Book your €50 consultation</h2>
-                    <p class="large-text">A focused 60–120 minute session to map your top workflows, estimate savings, and outline a pilot. You'll receive a short "Automation Roadmap" PDF after the call. The €50 fee is credited to your pilot if you proceed.</p>
+                <div class="consultation-content">
+                    <h1>Secure your spot</h1>
+                    <p class="consultation-description">Transform your business landscape with our cutting-edge consulting approach. Schedule an appointment today and unlock a world of insight-driven strategies tailored to reach new heights.</p>
+
+                    <img src="book.png" alt="Professional consultation" class="consultation-image">
                 </div>
-                
-                <div class="booking-card">
+
+                <div class="booking-panel">
                     <div class="booking-header">
-                        <h3>Select Appointment</h3>
+                        <span class="booking-title">📅 Select Appointment</span>
+                        <span class="select-appointment">SIGN UP | LOGIN</span>
                     </div>
-                    
-                    <div class="appointment-option">
-                        <div class="appointment-info">
-                            <h4>€50 Consultation</h4>
-                            <p>60–120 minutes · roadmap PDF · fee credited</p>
+
+                    <div class="service-option">
+                        <div class="service-info">
+                            <h3>Free Consultation</h3>
+                            <p class="service-duration">30 minutes</p>
                         </div>
-                        <button class="book-btn">Book</button>
+                        <button class="book-button">BOOK</button>
                     </div>
-                    
-                    <div class="appointment-option">
-                        <div class="appointment-info">
-                            <h4>Pilot Kickoff (after consult)</h4>
-                            <p>Scoping & timelines · included with pilot</p>
+
+                    <div class="service-option">
+                        <div class="service-info">
+                            <h3>Basic Service</h3>
+                            <p class="service-duration">1 hour</p>
                         </div>
-                        <button class="book-btn">Request</button>
+                        <div class="service-price">@ $99.00</div>
+                        <button class="book-button">BOOK</button>
                     </div>
-                    
-                    <div class="appointment-option">
-                        <div class="appointment-info">
-                            <h4>Assessment Link</h4>
-                            <p>3-minute quiz · free savings report</p>
+
+                    <div class="service-option">
+                        <div class="service-info">
+                            <h3>Advanced Service</h3>
+                            <p class="service-duration">1 hour</p>
                         </div>
-                        <button class="book-btn" onclick="location.href='#services'">Open</button>
+                        <div class="service-price">@ $199.00</div>
+                        <button class="book-button">BOOK</button>
+                    </div>
+
+                    <div class="booking-footer">
+                        Powered by<br>
+                        <a href="#">Acuity Scheduling</a>
                     </div>
                 </div>
             </div>
