@@ -194,7 +194,7 @@
         /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             margin-top: 60px;
             align-items: start;
@@ -204,18 +204,20 @@
             text-align: left;
         }
 
+        /* Left and Right images - Smaller */
         .service-card:nth-child(1) .service-image,
         .service-card:nth-child(3) .service-image {
             width: 100%;
-            height: 350px;
+            height: 400px;
             object-fit: cover;
             margin-bottom: 20px;
             display: block;
         }
 
+        /* Center image - Much Larger */
         .service-card:nth-child(2) .service-image {
             width: 100%;
-            height: 700px;
+            height: 650px;
             object-fit: cover;
             margin-bottom: 20px;
             display: block;
