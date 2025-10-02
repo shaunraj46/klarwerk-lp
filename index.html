@@ -83,6 +83,23 @@
             opacity: 0.6;
         }
 
+        .nav-cta {
+            background: var(--black) !important;
+            color: var(--white) !important;
+            padding: 8px 16px !important;
+            border-radius: 4px;
+            font-weight: 500 !important;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.8 !important;
+        }
+
+        /* Scroll margin for fixed header */
+        section[id] {
+            scroll-margin-top: 100px;
+        }
+
         /* Typography */
         h1 {
             font-size: clamp(48px, 6vw, 80px);
@@ -195,6 +212,237 @@
 
         .hero-content .large-text {
             color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-microcopy {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Proof Strip */
+        .proof-strip {
+            background: var(--light-gray);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .proof-text {
+            font-size: 14px;
+            color: var(--gray);
+            text-align: center;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* How It Works */
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .how-step h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: var(--black);
+        }
+
+        .how-step p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray);
+        }
+
+        /* What You Get */
+        .what-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .what-card {
+            padding: 40px;
+            border: 1px solid var(--border);
+            background: var(--white);
+        }
+
+        .what-card h3 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 25px;
+            color: var(--black);
+        }
+
+        .what-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+        }
+
+        .what-card li {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray);
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .what-card li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--black);
+        }
+
+        @media (max-width: 768px) {
+            .what-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        /* ROI Snapshot */
+        .roi-section {
+            background: var(--light-gray);
+            padding: 80px 0;
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            text-align: center;
+        }
+
+        .roi-stat {
+            padding: 20px;
+        }
+
+        .roi-number {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 300;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+
+        .roi-label {
+            font-size: 14px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Case Example */
+        .case-section {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .case-quote {
+            font-size: 20px;
+            line-height: 1.5;
+            color: var(--gray);
+            text-align: center;
+            font-style: italic;
+            margin: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Fit List */
+        .fit-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 40px;
+            max-width: 600px;
+        }
+
+        .fit-list li {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray);
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .fit-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--black);
+        }
+
+        /* Security Grid */
+        .security-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-top: 40px;
+        }
+
+        .security-column h3 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: var(--black);
+        }
+
+        .security-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .security-column li {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray);
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .security-column li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--black);
+        }
+
+        @media (max-width: 768px) {
+            .roi-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .security-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
         }
 
         /* --- SERVICES: full-width + tall images + midpoint alignment (Squarespace-like) --- */
@@ -516,74 +764,69 @@
         .footer {
             background: var(--light-gray);
             padding: 80px 0 40px;
-            text-align: center;
         }
 
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .footer h2 {
-            margin-bottom: 20px;
-        }
-
-        .footer p {
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
             margin-bottom: 40px;
         }
 
-        .newsletter-form {
-            display: flex;
-            max-width: 400px;
-            margin: 0 auto 40px;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: 15px;
-            border: 1px solid var(--border);
-            border-right: none;
-            font-size: 16px;
-        }
-
-        .newsletter-btn {
-            padding: 15px 30px;
-            background: var(--black);
-            color: var(--white);
-            border: none;
-            font-size: 12px;
+        .footer-column h3 {
+            font-size: 24px;
             font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
+            margin-bottom: 20px;
             color: var(--black);
+        }
+
+        .footer-column h4 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: var(--black);
+        }
+
+        .footer-column p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            font-size: 16px;
+            color: var(--gray);
+            text-decoration: none;
             transition: opacity 0.2s ease;
         }
 
-        .social-link:hover {
+        .footer-links a:hover {
             opacity: 0.6;
         }
 
         .footer-bottom {
             font-size: 14px;
             color: var(--gray);
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
         }
 
         /* Responsive */
@@ -770,6 +1013,103 @@
             .booking-panel{ position: static; width: 100%; }
             .consultation-image{ height: clamp(320px, 42vh, 520px); }
         }
+
+        /* Booking footer note */
+        .booking-footer-note {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid #EFEFEF;
+            font-size: 12px;
+            color: var(--gray);
+            text-align: center;
+        }
+
+        /* Quiz Section */
+        .quiz-embed {
+            margin-top: 40px;
+            padding: 20px;
+            background: var(--light-gray);
+            border-radius: 4px;
+        }
+
+        .quiz-embed iframe {
+            border-radius: 4px;
+            width: 100%;
+            min-height: 600px;
+        }
+
+        /* FAQ Section */
+        .faq-list {
+            margin-top: 60px;
+            max-width: 800px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--black);
+            padding: 25px 0;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 20px;
+            color: var(--gray);
+            transition: transform 0.2s ease;
+        }
+
+        .faq-item[open] .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 0 25px 0;
+        }
+
+        .faq-answer p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        /* Hide default details marker */
+        .faq-question::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item > summary {
+            list-style: none;
+        }
+
+        /* Contact Details */
+        .contact-details {
+            margin-top: 30px;
+        }
+
+        .contact-link {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            opacity: 0.6;
+        }
     </style>
 </head>
 <body>
@@ -779,9 +1119,10 @@
             <nav class="nav">
                 <a href="#" class="logo">Klarwerk</a>
                 <ul class="nav-menu">
-                    <li><a href="#services">How it works</a></li>
+                    <li><a href="#how">How it works</a></li>
                     <li><a href="#about">Why Klarwerk</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="#quiz" class="nav-cta">Start Assessment</a></li>
                 </ul>
             </nav>
         </div>
@@ -799,8 +1140,50 @@
 
         <div class="hero-content">
             <h1>Automate your back office. Keep the clarity.</h1>
-            <p class="large-text">We help SMEs in Germany, Austria, and Switzerland cut repetitive admin with human-in-the-loop automation. Start with a 3-minute assessment → get a free savings report → book a €50 consultation.</p>
-            <a href="#consultation" class="btn">Book €50 Consultation</a>
+            <p class="large-text">We help SMEs in Germany, Austria, and Switzerland remove repetitive admin using human-in-the-loop automation. Start with a 3-minute assessment → get a free savings report → book a €50 consultation.</p>
+            <div class="hero-ctas">
+                <a href="#quiz" class="btn btn-primary" onclick="console.log('assessment_start')">Start the 3-minute assessment</a>
+                <a href="#consultation" class="btn btn-secondary" onclick="console.log('consult_book_click')">Book €50 consultation</a>
+            </div>
+            <p class="hero-microcopy">GDPR-aligned · Results in minutes · EU hosting options</p>
+        </div>
+    </section>
+
+    <!-- Proof Strip -->
+    <section class="proof-strip">
+        <div class="container">
+            <p class="proof-text">Designed for DACH SMEs · Human-in-the-loop by default · Integrates with MS 365 · Google Workspace · DATEV · SAP · HubSpot · EU hosting · GDPR-aligned</p>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section" id="how">
+        <div class="container">
+            <div class="section-content">
+                <h2>How it works</h2>
+
+                <div class="how-grid">
+                    <div class="how-step">
+                        <h3>Step 1 — Assessment</h3>
+                        <p>3 minutes to size volume, effort, and quick wins. Outcome: inputs to your free report.</p>
+                    </div>
+
+                    <div class="how-step">
+                        <h3>Step 2 — Free report</h3>
+                        <p>Top 2–3 automation opportunities with estimated hours and € savings. Outcome: clear candidate for a pilot.</p>
+                    </div>
+
+                    <div class="how-step">
+                        <h3>Step 3 — €50 consult</h3>
+                        <p>60–120 minutes to map your workflow and risks. Outcome: 1–2 page roadmap PDF. Fee credited to pilot.</p>
+                    </div>
+
+                    <div class="how-step">
+                        <h3>Step 4 — Pilot</h3>
+                        <p>Deliver one workflow in 2–4 weeks, then iterate or scale. Outcome: hard numbers on time, cost, and quality.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -833,6 +1216,37 @@
         </div>
     </section>
 
+    <!-- What You Get -->
+    <section class="section" id="what-you-get">
+        <div class="container">
+            <div class="section-content">
+                <h2>What you get</h2>
+
+                <div class="what-grid">
+                    <div class="what-card">
+                        <h3>Free assessment report includes</h3>
+                        <ul>
+                            <li>2–3 automation opportunities with feasibility pattern (API / RPA+OCR / LLM+HITL)</li>
+                            <li>Estimated hours saved per week and € saved per year</li>
+                            <li>Indicative pilot cost range and payback window</li>
+                        </ul>
+                        <a href="#quiz" class="btn" onclick="console.log('assessment_start')">Start the 3-minute assessment</a>
+                    </div>
+
+                    <div class="what-card">
+                        <h3>€50 consultation deliverables</h3>
+                        <ul>
+                            <li>60–120 min call with process mapping and risk review</li>
+                            <li>"Automation Roadmap" PDF (as-is vs to-be, KPIs, next steps)</li>
+                            <li>Fee credited to your pilot invoice</li>
+                        </ul>
+                        <a href="#consultation" class="btn" onclick="console.log('consult_book_click')">Book €50 consultation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About -->
     <section class="section" id="about">
         <div class="container">
@@ -848,13 +1262,83 @@
         </div>
     </section>
 
+    <!-- ROI Snapshot -->
+    <section class="roi-section">
+        <div class="container">
+            <div class="roi-grid">
+                <div class="roi-stat">
+                    <div class="roi-number">10–18 h/wk</div>
+                    <div class="roi-label">typical time freed</div>
+                </div>
+                <div class="roi-stat">
+                    <div class="roi-number">3–6 mo</div>
+                    <div class="roi-label">payback window</div>
+                </div>
+                <div class="roi-stat">
+                    <div class="roi-number">EU</div>
+                    <div class="roi-label">data residency</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Example -->
+    <section class="case-section">
+        <div class="container">
+            <blockquote class="case-quote">
+                "A 25-person agency reduced admin time by 40% in six weeks by automating invoice intake and inbox triage."
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Is This For You -->
+    <section class="section" id="fit">
+        <div class="container">
+            <div class="section-content">
+                <h2>Is this for you?</h2>
+                <ul class="fit-list">
+                    <li>10–200 employees with recurring admin in Finance, HR, or Ops</li>
+                    <li>Willing to pilot one workflow in 2–4 weeks</li>
+                    <li>Comfortable with human-in-the-loop approvals initially</li>
+                    <li>Common tools: MS 365, Google Workspace, DATEV, SAP, HubSpot</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security & Compliance -->
+    <section class="section" id="security">
+        <div class="container">
+            <div class="section-content">
+                <div class="security-grid">
+                    <div class="security-column">
+                        <h3>Security & compliance</h3>
+                        <ul>
+                            <li>EU hosting options and EU-only data processing on request</li>
+                            <li>Access control, audit logs, and retention by policy</li>
+                            <li>Human-in-the-loop checkpoints for sensitive actions</li>
+                        </ul>
+                    </div>
+                    <div class="security-column">
+                        <h3>Integration posture</h3>
+                        <ul>
+                            <li>API-first where available (fewer errors, faster)</li>
+                            <li>Exports/Imports for legacy tools</li>
+                            <li>RPA+OCR when screens are the only interface</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Consultation Booking -->
     <section class="consultation-section" id="consultation">
         <div class="consultation-container">
             <div class="consultation-grid">
                 <div class="consultation-content">
-                    <h1>Secure your spot</h1>
-                    <p class="consultation-description">Transform your business landscape with our cutting-edge consulting approach. Schedule an appointment today and unlock a world of insight-driven strategies tailored to reach new heights.</p>
+                    <h1>Book your consultation</h1>
+                    <p class="consultation-description">60–120 minutes to map your flows, confirm volume & exceptions, and outline a pilot. You'll receive a short "Automation Roadmap" PDF after the call. The €50 fee is credited to your pilot.</p>
 
                     <img src="book.png" alt="Professional consultation" class="consultation-image">
                 </div>
@@ -871,35 +1355,105 @@
                     <div class="booking-list">
                         <div class="service-option">
                             <div class="service-info">
-                                <h3>Free Consultation</h3>
-                                <p class="service-duration">30 minutes</p>
+                                <h3>€50 Consultation</h3>
+                                <p class="service-duration">60–120 minutes · roadmap PDF · fee credited</p>
                             </div>
-                            <div class="service-price">€0.00</div>
-                            <button class="book-button">Book</button>
+                            <button class="book-button" onclick="console.log('consult_book_click')">Book</button>
                         </div>
 
                         <div class="service-option">
                             <div class="service-info">
-                                <h3>Basic Service</h3>
-                                <p class="service-duration">1 hour</p>
+                                <h3>Pilot kickoff (after consult)</h3>
+                                <p class="service-duration">Scope, KPIs, and timelines · included with pilot</p>
                             </div>
-                            <div class="service-price">€99.00</div>
-                            <button class="book-button">Book</button>
+                            <button class="book-button">Request</button>
                         </div>
 
                         <div class="service-option">
                             <div class="service-info">
-                                <h3>Advanced Service</h3>
-                                <p class="service-duration">1 hour</p>
+                                <h3>Assessment link</h3>
+                                <p class="service-duration">3-minute quiz · free savings report</p>
                             </div>
-                            <div class="service-price">€199.00</div>
-                            <button class="book-button">Book</button>
+                            <button class="book-button" onclick="console.log('assessment_start')">Open</button>
                         </div>
                     </div>
 
-                    <div class="booking-powered">
-                        Powered by <strong>acuity:scheduling</strong>
-                    </div>
+                    <p class="booking-footer-note">Payment at booking · Timezone: Europe/Berlin</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="section" id="quiz">
+        <div class="container">
+            <div class="section-content">
+                <h2>Start the 3-minute assessment</h2>
+                <p class="large-text">No spam. EU data handling. Results in minutes.</p>
+
+                <!-- TODO: Replace with actual form URL when available -->
+                <div class="quiz-embed">
+                    <iframe src="about:blank" width="100%" height="600" frameborder="0" style="background: #f5f5f5; border: 1px solid #ddd;">
+                        <p>Assessment form will load here</p>
+                    </iframe>
+                    <!--
+                    FIELDS REQUIRED IN FORM:
+                    - Company size
+                    - Country (DE/AT/CH)
+                    - Tools (MS 365, Google Workspace, DATEV/Bexio, ERP [SAP/BC/Lexware], CRM [HubSpot/Salesforce], HR [Personio/SAP], Other)
+                    - Top processes (choose up to 2)
+                    - Weekly items & minutes per item
+                    - % rework
+                    - Data input type
+                    - Priority
+                    - Email
+                    -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="section-content">
+                <h2>Frequently asked questions</h2>
+
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary class="faq-question">What exactly happens in the €50 consultation?</summary>
+                        <div class="faq-answer">
+                            <p>We map your top workflow(s), confirm volumes and exceptions, and estimate hours/€ saved. You get a 1–2 page "Automation Roadmap" PDF. The €50 is credited to your pilot.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">How do you estimate savings?</summary>
+                        <div class="faq-answer">
+                            <p>We combine your volumes and manual minutes per item with a conservative automation factor (based on data structure and human-in-the-loop) and typical wage bands for DACH roles.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">What does a pilot cost?</summary>
+                        <div class="faq-answer">
+                            <p>Most first pilots land between €2,000–€8,000 depending on inputs, integrations, and approvals. We agree a fixed scope before kickoff.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Will our data leave the EU?</summary>
+                        <div class="faq-answer">
+                            <p>By default we use EU hosting options. If a third-party requires non-EU processing, we flag it and offer an EU-only alternative.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Do you replace staff?</summary>
+                        <div class="faq-answer">
+                            <p>No. The goal is to remove repetitive load so your team can focus on higher-value work.</p>
+                        </div>
+                    </details>
                 </div>
             </div>
         </div>
@@ -911,7 +1465,11 @@
             <div class="contact-grid">
                 <div>
                     <h2>Talk to Klarwerk</h2>
-                    <p class="large-text">Questions before you book? Send a note and we'll reply within one business day. For a fast start, book the €50 consultation or take the 3-minute assessment first.</p>
+                    <p class="large-text">Questions before you book? Send a note—response within one business day. For a fast start, book the €50 consultation or take the 3-minute assessment first.</p>
+                    <div class="contact-details">
+                        <p><a href="mailto:hello@klarwerk.com" class="contact-link">hello@klarwerk.com</a></p>
+                        <p><a href="tel:+49XXXXXXXXX" class="contact-link">+49 XXX XXX XXX</a></p>
+                    </div>
                 </div>
                 
                 <div class="contact-form">
@@ -945,22 +1503,34 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <h2>Klarwerk</h2>
-                <p>Automation consulting for SMEs in the DACH region — 3-minute assessment, €50 consultation, and pilot delivery.</p>
-                
-                <form class="newsletter-form">
-                    <input type="email" class="newsletter-input" placeholder="Email Address">
-                    <button type="submit" class="newsletter-btn">Sign Up</button>
-                </form>
-                
-                <div class="social-links">
-                    <a href="#" class="social-link">T</a>
-                    <a href="#" class="social-link">I</a>
-                    <a href="#" class="social-link">L</a>
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h3>Klarwerk</h3>
+                        <p>Automation consulting for SMEs in the DACH region — 3-minute assessment, €50 consultation, and pilot delivery.</p>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Quick Start</h4>
+                        <ul class="footer-links">
+                            <li><a href="#quiz">Assessment</a></li>
+                            <li><a href="#consultation">€50 consultation</a></li>
+                            <li><a href="#how">How it works</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul class="footer-links">
+                            <li><a href="/impressum">Impressum</a></li>
+                            <li><a href="/datenschutz">Datenschutz</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
                 </div>
-                
+
                 <div class="footer-bottom">
-                    <p>© 2025 Klarwerk. All rights reserved.</p>
+                    <p>© 2025 Klarwerk</p>
                 </div>
             </div>
         </div>
