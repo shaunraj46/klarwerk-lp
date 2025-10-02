@@ -683,6 +683,93 @@
                 font-size: 14px;
             }
         }
+
+        /* ===== Match "Our Services" footprint for the Consultation section ===== */
+        .consultation-section{
+            /* similar vertical presence to Services */
+            padding: 140px 0 160px;
+            min-height: 100vh;                 /* take the viewport like Services does visually */
+            background: var(--white);
+        }
+
+        .consultation-container{
+            /* mirror Services side gutters */
+            max-width: none;                    /* remove hard cap */
+            width: 100%;
+            margin: 0 auto;
+            padding-left: clamp(16px, 4vw, 56px);
+            padding-right: clamp(16px, 4vw, 56px);
+        }
+
+        /* 2-col layout that breathes like Services */
+        .consultation-grid{
+            display: grid;
+            grid-template-columns: minmax(640px, 1fr) 520px; /* big left, fixed right */
+            gap: clamp(48px, 5vw, 80px);
+            align-items: start;
+        }
+
+        /* Big headline to match the visual weight of "Our Services" */
+        .consultation-content h1{
+            font-size: clamp(48px, 6vw, 72px);
+            line-height: 1.08;
+            font-weight: 400;
+            margin: 0 0 28px;
+        }
+
+        /* similar measure to Services copy */
+        .consultation-description{
+            max-width: 600px;
+            font-size: 16px;
+            line-height: 1.7;
+            margin: 0 0 36px;
+        }
+
+        /* Make the image tall like the Services visuals */
+        .consultation-image{
+            width: 100%;
+            height: clamp(420px, 50vh, 720px);  /* tall on desktop, responsive down */
+            object-fit: cover;
+            display: block;
+            margin: 0;                          /* keep tight like Services cards */
+            border-radius: 0;
+        }
+
+        /* Right booking panel stays tidy and aligned */
+        .booking-panel{
+            position: sticky;
+            top: 100px;
+            width: 520px;
+            border: none;
+            padding: 0;
+        }
+
+        /* Keep card rhythm tight (like your Services captions) */
+        .booking-list{ display: grid; gap: 14px; }
+        .service-option{
+            padding: 16px 18px;
+            border: 1px solid #EAEAEA;
+            border-radius: 4px;
+            display: grid;
+            grid-template-columns: 1fr auto auto; /* info | price | button */
+            gap: 12px;
+            align-items: center;
+            background: #fff;
+        }
+
+        @media (min-width: 1800px){
+            /* optional: cap like Services does at ultrawide */
+            .consultation-container{ max-width: 1800px; }
+        }
+
+        @media (max-width: 1100px){
+            .consultation-grid{
+                grid-template-columns: 1fr;
+                gap: 56px;
+            }
+            .booking-panel{ position: static; width: 100%; }
+            .consultation-image{ height: clamp(320px, 42vh, 520px); }
+        }
     </style>
 </head>
 <body>
