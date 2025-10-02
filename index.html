@@ -195,35 +195,33 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 60px;
-            margin-top: 80px;
+            gap: 40px;
+            margin-top: 60px;
         }
 
         .service-card {
-            text-align: center;
+            text-align: left;
         }
 
         .service-image {
             width: 100%;
-            height: 300px;
-            background: var(--light-gray);
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray);
-            font-size: 14px;
+            height: 400px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            display: block;
         }
 
         .service-title {
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 8px;
+            color: var(--black);
         }
 
         .service-price {
             font-size: 16px;
             color: var(--gray);
+            font-weight: 400;
         }
 
         /* Split Section */
@@ -555,19 +553,19 @@
                 
                 <div class="services-grid">
                     <div class="service-card">
-                        <div class="service-image">3-Minute Assessment</div>
+                        <img src="service1.png" alt="Automation Potential Quiz" class="service-image">
                         <h3 class="service-title">Automation Potential Quiz</h3>
                         <p class="service-price">Free · instant report</p>
                     </div>
                     
                     <div class="service-card">
-                        <div class="service-image">Diagnosis & Roadmap</div>
+                        <img src="service2.png" alt="€50 Consultation" class="service-image">
                         <h3 class="service-title">€50 Consultation (60–120 min)</h3>
                         <p class="service-price">Credited to pilot</p>
                     </div>
                     
                     <div class="service-card">
-                        <div class="service-image">Pilot & Handover</div>
+                        <img src="service3.png" alt="Pilot Implementation" class="service-image">
                         <h3 class="service-title">Pilot Implementation</h3>
                         <p class="service-price">From €2,000 · 2–4 weeks</p>
                     </div>
