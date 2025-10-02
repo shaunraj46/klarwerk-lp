@@ -197,46 +197,77 @@
             color: rgba(255, 255, 255, 0.9);
         }
 
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px; /* more breathing room */
-            margin-top: 60px;
-            align-items: start;
+        /* --- SERVICES: full-width + tall images + midpoint alignment (Squarespace-like) --- */
+
+        /* Let the section breathe edge-to-edge (but keep sensible side padding) */
+        #services {
+            padding-left: 0;
+            padding-right: 0;
         }
 
+        #services .services-container {
+            max-width: none;                         /* remove 1200/1400 caps */
+            width: 100%;
+            margin: 0 auto;
+            padding-left: clamp(16px, 4vw, 56px);    /* fluid gutters */
+            padding-right: clamp(16px, 4vw, 56px);
+        }
+
+        /* 3-up grid that centers items vertically (midpoint alignment like Squarespace) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: clamp(16px, 3vw, 36px);
+            margin-top: 48px;
+            align-items: center;                     /* <<< MIDPOINT (not baseline) */
+        }
+
+        /* Cards are simple vertical stacks; no fixed card height */
         .service-card {
             display: flex;
             flex-direction: column;
             text-align: left;
-            justify-content: flex-start;
         }
 
+        /* HEIGHT: scale with viewport height so images feel ~70% on large screens */
         .service-image {
             width: 100%;
-            height: 450px; /* reduced height for better proportions */
+            height: clamp(420px, 45vh, 600px);       /* left + right */
             object-fit: cover;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            margin-bottom: 14px;
+            transition: transform .3s ease, opacity .3s ease;
         }
 
+        /* Taller center image (stagger like Squarespace) */
+        .services-grid .service-card:nth-child(2) .service-image {
+            height: clamp(520px, 65vh, 820px);       /* center is notably taller */
+        }
+
+        /* Subtle hover, like SQSP */
         .service-card:hover .service-image {
-            transform: scale(1.02);
-            opacity: 0.95;
+            transform: scale(1.015);
+            opacity: 0.98;
         }
 
+        /* Tighten captions like SQSP */
         .service-title {
             font-size: 16px;
-            font-weight: 500;
-            margin-bottom: 5px; /* tighter spacing */
+            font-weight: 600;
+            margin-bottom: 6px;
             color: var(--black);
         }
 
         .service-price {
-            font-size: 14px; /* smaller price font */
+            font-size: 13.5px;
             color: var(--gray);
             font-weight: 400;
+        }
+
+        /* Optional: avoid going absurdly wide on ultrawide monitors (feel free to remove) */
+        @media (min-width: 1800px) {
+            #services .services-container {
+                max-width: 1800px;                     /* cap if you don't want true full-bleed */
+            }
         }
 
         /* Split Section */
@@ -451,7 +482,16 @@
 
             .services-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 48px;
+                align-items: start;
+            }
+
+            .service-image {
+                height: clamp(360px, 40vh, 520px);
+            }
+
+            .services-grid .service-card:nth-child(2) .service-image {
+                height: clamp(420px, 50vh, 600px);
             }
 
             .split-section,
