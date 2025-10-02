@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Klarwerk</title>
+    <meta name="description" content="Autonomous-first back-office automation for DACH SMEs. 3-minute assessment, free report, €50 consultation, and a 2–4 week pilot. EU hosting. GDPR-aligned.">
+    <link rel="canonical" href="https://yourdomain.com/">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:title" content="Klarwerk — Autonomous-first back-office automation for DACH SMEs">
+    <meta property="og:description" content="Agent-led assessment, free report, €50 consultation, EU hosting, GDPR-aligned.">
+    <meta property="og:image" content="https://yourdomain.com/og.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Localisation hint; add a /de page later -->
+    <link rel="alternate" href="https://yourdomain.com/" hreflang="en">
+    <link rel="alternate" href="https://yourdomain.com/de/" hreflang="de">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
@@ -100,6 +118,31 @@
             scroll-margin-top: 100px;
         }
 
+        /* Accessibility */
+        :focus-visible {
+            outline: 2px solid #000;
+            outline-offset: 3px;
+        }
+
+        a.btn:focus-visible {
+            outline: 3px solid #000;
+        }
+
+        img[alt="Professional consultation"], .service-image {
+            inline-size: 100%;
+            block-size: auto;
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-video {
+                display: none;
+            }
+            .hero-section {
+                background: #000 url('hero-poster.jpg') center/cover no-repeat;
+            }
+        }
+
         /* Typography */
         h1 {
             font-size: clamp(48px, 6vw, 80px);
@@ -190,11 +233,8 @@
 
         .hero-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.35) 40%, rgba(0,0,0,.55));
             z-index: -1;
         }
 
@@ -208,10 +248,12 @@
 
         .hero-content h1 {
             color: var(--white);
+            text-shadow: 0 1px 2px rgba(0,0,0,.5);
         }
 
         .hero-content .large-text {
             color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 2px rgba(0,0,0,.5);
         }
 
         .hero-ctas {
@@ -475,6 +517,12 @@
             display: flex;
             flex-direction: column;
             text-align: left;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .service-card:hover {
+            opacity: 0.95;
         }
 
         /* HEIGHT: scale with viewport height so images feel ~70% on large screens */
@@ -1111,8 +1159,21 @@
             opacity: 0.6;
         }
     </style>
+
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"Organization",
+      "name":"Klarwerk",
+      "url":"https://yourdomain.com/",
+      "logo":"https://yourdomain.com/logo.png",
+      "areaServed":["DE","AT","CH"],
+      "contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"hello@klarwerk.com","areaServed":["DE","AT","CH"]}]
+    }
+    </script>
 </head>
 <body>
+    <a href="#how" style="position:absolute;left:-9999px;top:auto;">Skip to content</a>
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -1120,6 +1181,7 @@
                 <a href="#" class="logo">Klarwerk</a>
                 <ul class="nav-menu">
                     <li><a href="#how">How it works</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#about">Why Klarwerk</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#quiz" class="nav-cta">Start Assessment</a></li>
@@ -1131,7 +1193,7 @@
     <!-- Hero -->
     <section class="hero-section">
         <!-- Background Video -->
-        <video class="hero-video" autoplay muted loop playsinline>
+        <video class="hero-video" autoplay muted loop playsinline poster="hero-poster.jpg">
             <source src="hero-video.mp4" type="video/mp4">
         </video>
 
@@ -1140,12 +1202,13 @@
 
         <div class="hero-content">
             <h1>Automate your back office. Keep the clarity.</h1>
-            <p class="large-text">We help SMEs in Germany, Austria, and Switzerland remove repetitive admin using human-in-the-loop automation. Start with a 3-minute assessment → get a free savings report → book a €50 consultation.</p>
+            <p class="large-text">An on-site agent scopes, plans, and books your pilot—<strong>autonomous-first</strong>, <strong>human on demand</strong>. Built for SMEs in Germany, Austria, and Switzerland. EU hosting. GDPR-aligned.</p>
             <div class="hero-ctas">
                 <a href="#quiz" class="btn btn-primary" onclick="console.log('assessment_start')">Start the 3-minute assessment</a>
                 <a href="#consultation" class="btn btn-secondary" onclick="console.log('consult_book_click')">Book €50 consultation</a>
             </div>
             <p class="hero-microcopy">GDPR-aligned · Results in minutes · EU hosting options</p>
+            <p class="hero-microcopy">3-minute check → free report → €50 consult → pilot in 2–4 weeks</p>
         </div>
     </section>
 
@@ -1194,23 +1257,23 @@
                 <h2>Our Services</h2>
 
                 <div class="services-grid">
-                    <div class="service-card">
-                        <img src="service1.png" alt="Automation Potential Quiz" class="service-image">
+                    <a href="#quiz" class="service-card" aria-label="Start Automation Potential Quiz">
+                        <img src="service1.png" alt="Automated invoice intake example" class="service-image">
                         <h3 class="service-title">Automation Potential Quiz</h3>
                         <p class="service-price">Free · instant report</p>
-                    </div>
-                    
-                    <div class="service-card">
-                        <img src="service2.png" alt="€50 Consultation" class="service-image">
+                    </a>
+
+                    <a href="#consultation" class="service-card" aria-label="Book €50 Consultation">
+                        <img src="service2.png" alt="Process mapping consultation session" class="service-image">
                         <h3 class="service-title">€50 Consultation (60–120 min)</h3>
                         <p class="service-price">Credited to pilot</p>
-                    </div>
-                    
-                    <div class="service-card">
-                        <img src="service3.png" alt="Pilot Implementation" class="service-image">
+                    </a>
+
+                    <a href="#consultation" class="service-card" aria-label="Discuss Pilot Implementation">
+                        <img src="service3.png" alt="Automated workflow implementation" class="service-image">
                         <h3 class="service-title">Pilot Implementation</h3>
                         <p class="service-price">From €2,000 · 2–4 weeks</p>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -1226,11 +1289,14 @@
                     <div class="what-card">
                         <h3>Free assessment report includes</h3>
                         <ul>
+                            <li><strong>Autonomy Score (0–100)</strong> with banding: Assist (0–39) · Hybrid (40–69) · Autonomous (70–100)</li>
                             <li>2–3 automation opportunities with feasibility pattern (API / RPA+OCR / LLM+HITL)</li>
+                            <li>Payback window in months and a one-page brief you can forward internally</li>
                             <li>Estimated hours saved per week and € saved per year</li>
-                            <li>Indicative pilot cost range and payback window</li>
                         </ul>
+                        <p style="margin-top:6px;color:#888">The Autonomy Score blends system connectivity, exception rate, data sensitivity, and change frequency.</p>
                         <a href="#quiz" class="btn" onclick="console.log('assessment_start')">Start the 3-minute assessment</a>
+                        <p style="margin-top:12px"><a href="/sample-report.pdf" class="btn btn-secondary" style="border:1px solid rgba(0,0,0,.2)">See a sample report</a></p>
                     </div>
 
                     <div class="what-card">
@@ -1238,6 +1304,7 @@
                         <ul>
                             <li>60–120 min call with process mapping and risk review</li>
                             <li>"Automation Roadmap" PDF (as-is vs to-be, KPIs, next steps)</li>
+                            <li>One-page brief you can forward to stakeholders</li>
                             <li>Fee credited to your pilot invoice</li>
                         </ul>
                         <a href="#consultation" class="btn" onclick="console.log('consult_book_click')">Book €50 consultation</a>
@@ -1288,6 +1355,9 @@
             <blockquote class="case-quote">
                 "A 25-person agency reduced admin time by 40% in six weeks by automating invoice intake and inbox triage."
             </blockquote>
+            <p style="text-align:center;margin-top:14px">
+                <a href="/composite-case.pdf">View composite case (typical SME data, anonymised)</a>
+            </p>
         </div>
     </section>
 
@@ -1317,6 +1387,7 @@
                             <li>EU hosting options and EU-only data processing on request</li>
                             <li>Access control, audit logs, and retention by policy</li>
                             <li>Human-in-the-loop checkpoints for sensitive actions</li>
+                            <li>Explicit human override: approve/deny actions, set confidence thresholds, and download audit trails</li>
                         </ul>
                     </div>
                     <div class="security-column">
@@ -1329,6 +1400,19 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section" id="pricing">
+        <div class="container">
+            <h2>Pricing</h2>
+            <p class="large-text">We start small, prove value, then scale. No lock-ins.</p>
+            <ul class="fit-list" style="max-width:700px">
+                <li><strong>€50 Agent Session</strong> — credited to your pilot</li>
+                <li><strong>Pilot (2–4 weeks)</strong> — from <strong>€2,000</strong>, scope-based</li>
+                <li><strong>Run</strong> — monthly retainer (SLA + changes) or per-transaction price</li>
+            </ul>
         </div>
     </section>
 
@@ -1358,7 +1442,7 @@
                                 <h3>€50 Consultation</h3>
                                 <p class="service-duration">60–120 minutes · roadmap PDF · fee credited</p>
                             </div>
-                            <button class="book-button" onclick="console.log('consult_book_click')">Book</button>
+                            <a class="book-button" href="https://your-scheduler.com/book?type=consult_50_eur" onclick="console.log('consult_book_click')">Book</a>
                         </div>
 
                         <div class="service-option">
@@ -1366,7 +1450,7 @@
                                 <h3>Pilot kickoff (after consult)</h3>
                                 <p class="service-duration">Scope, KPIs, and timelines · included with pilot</p>
                             </div>
-                            <button class="book-button">Request</button>
+                            <a class="book-button" href="https://your-scheduler.com/request?type=pilot_kickoff">Request</a>
                         </div>
 
                         <div class="service-option">
@@ -1374,11 +1458,11 @@
                                 <h3>Assessment link</h3>
                                 <p class="service-duration">3-minute quiz · free savings report</p>
                             </div>
-                            <button class="book-button" onclick="console.log('assessment_start')">Open</button>
+                            <a class="book-button" href="#quiz" onclick="console.log('assessment_start')">Open</a>
                         </div>
                     </div>
 
-                    <p class="booking-footer-note">Payment at booking · Timezone: Europe/Berlin</p>
+                    <p class="booking-footer-note">Payment at booking · Billed in EUR · Timezone: Europe/Berlin</p>
                 </div>
             </div>
         </div>
@@ -1391,11 +1475,11 @@
                 <h2>Start the 3-minute assessment</h2>
                 <p class="large-text">No spam. EU data handling. Results in minutes.</p>
 
-                <!-- TODO: Replace with actual form URL when available -->
                 <div class="quiz-embed">
-                    <iframe src="about:blank" width="100%" height="600" frameborder="0" style="background: #f5f5f5; border: 1px solid #ddd;">
-                        <p>Assessment form will load here</p>
-                    </iframe>
+                    <iframe src="https://tally.so/r/your-form" loading="lazy" frameborder="0" width="100%" height="600"></iframe>
+                    <p style="font-size:12px;color:#777;margin-top:8px">
+                        By submitting, you agree to processing your data for the stated purpose. See <a href="/datenschutz">Datenschutz</a>.
+                    </p>
                     <!--
                     FIELDS REQUIRED IN FORM:
                     - Company size
@@ -1452,6 +1536,13 @@
                         <summary class="faq-question">Do you replace staff?</summary>
                         <div class="faq-answer">
                             <p>No. The goal is to remove repetitive load so your team can focus on higher-value work.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Is it really autonomous?</summary>
+                        <div class="faq-answer">
+                            <p>Mostly. Intake, scoping, scheduling, and reporting are agent-led. Execution can run autonomously for low-risk steps; approvals can be required by threshold.</p>
                         </div>
                     </details>
                 </div>
@@ -1530,10 +1621,21 @@
                 </div>
 
                 <div class="footer-bottom">
+                    <p>Based in DACH · Typical response within 1 business day</p>
                     <p>© 2025 Klarwerk</p>
                 </div>
             </div>
         </div>
     </footer>
+
+    <script>
+        const log = (e, data={}) => {
+            // swap this out later for your analytics
+            console.log('metric', e, {...data, ts: Date.now()});
+        };
+        document.querySelectorAll('[onclick*="assessment_start"]').forEach(el=>el.addEventListener('click',()=>log('quiz_start')));
+        document.querySelectorAll('[onclick*="consult_book_click"]').forEach(el=>el.addEventListener('click',()=>log('consult_click')));
+        // Track quiz completion by listening for a postMessage from your form, or add a thank-you page hook later.
+    </script>
 </body>
 </html>
